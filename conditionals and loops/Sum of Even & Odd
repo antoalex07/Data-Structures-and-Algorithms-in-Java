@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		
+        Scanner s = new Scanner(System.in);
+        int N = s.nextInt();
+        
+        if(N >= 0 && N <= 100000000){
+            
+            int rem, Sum_of_Even_Digits = 0, Sum_of_Odd_Digits = 0; 
+            while(N > 0){
+                
+                rem = N % 10;
+                if(rem % 2 == 0){
+                    
+                    Sum_of_Even_Digits += rem;
+                    
+                }
+                else{
+                    
+                    Sum_of_Odd_Digits += rem;
+                    
+                }
+                N = N/10;
+                
+            }
+            
+            System.out.println(Sum_of_Even_Digits+" "+Sum_of_Odd_Digits);
+        }
+	}
+}
