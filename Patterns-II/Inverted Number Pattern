@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Solution {
+
+
+	public static void main(String[] args) {
+		
+		Scanner s = new Scanner(System.in);
+        int N = s.nextInt();
+        int i = 0;
+        while (i < N){
+            
+            int j = 0;
+            int p = N - i;
+            while(j < p){
+                
+                System.out.print(p);
+                j++;
+            }
+            System.out.println();
+            i++;
+        }
+		
+	}
+
+}
