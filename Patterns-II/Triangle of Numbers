@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Solution {
+
+	public static void main(String[] args) {
+		
+        Scanner s = new Scanner(System.in);
+        int N = s.nextInt();
+        int i = 1;
+        while(i <= N){
+            
+            int spaces = 1;
+            while(spaces <= N-i){
+                
+                System.out.print(" ");
+                spaces++;
+            }
+            int temp = i, count = 1;
+            while(count <= i){
+                System.out.print(temp++);
+                count++;
+            }
+            temp--;
+            while(--count > 1){
+                
+                System.out.print(--temp);
+                
+            }
+            System.out.println();
+            i++;
+        }
+	}
+}
