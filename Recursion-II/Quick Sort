@@ -1,0 +1,47 @@
+
+
+public class Solution {
+    
+    static void Swap(int[] arr , int i , int j){
+        
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+    
+    static int Partition(int[] arr , int low , int high){
+        
+        int pivot = arr[high];
+        int i = low - 1;
+        int j = low;
+        while(j < high){
+            
+            if(pivot > arr[j]){
+                
+                i++;
+                Swap(arr , i , j);
+            }
+            j++;
+        }
+        Swap(arr , i + 1 , high);
+        return i + 1;
+    }
+    
+    static void QuickSort(int[] arr , int low , int high){
+        
+        if(low < high){
+            
+            int pi = Partition(arr , low , high);
+            
+            QuickSort(arr , low , pi - 1);
+            QuickSort(arr , pi + 1 , high);
+            
+        }
+    } 
+	
+	public static void quickSort(int[] input) {
+        
+		QuickSort(input , 0 , input.length - 1);
+	}
+	
+}
