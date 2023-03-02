@@ -1,0 +1,28 @@
+
+public class Solution {
+
+    public static void sumOfTwoArrays(int arr1[], int arr2[], int output[]) {
+ 
+        int m = arr1.length, n = arr2.length, o = output.length;
+        int i = m - 1, j = n - 1, k = o - 1, carry = 0, sum = 0;
+        while(i >= 0 && j >= 0){
+            
+            sum = arr1[i--] + arr2[j--] + carry;
+            output[k--] = sum % 10;
+            carry = sum / 10;
+        }
+        while(i >= 0){
+            sum = arr1[i--] + carry;
+            output[k--] = sum % 10;
+            carry = sum / 10;
+        }
+        while(j >= 0){
+            sum = arr2[j--] + carry;
+            output[k--] = sum % 10;
+            carry = sum / 10;
+        }
+        if(k == 0){
+            output[k] = carry;
+        }
+    }
+}
