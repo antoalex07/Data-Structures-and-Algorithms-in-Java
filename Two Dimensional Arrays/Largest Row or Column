@@ -1,0 +1,54 @@
+
+public class Solution {
+
+	public static void findLargest(int mat[][]){
+		
+        int row = mat.length;
+        if(row > 0){
+            
+            int col = mat[0].length;
+            int rno = 0 , cno = 0 , col_sum = 0 , row_sum = 0;
+            char lrc = ' ';
+            int large = Integer.MIN_VALUE;
+            for(int i = 0; i < row; i++){
+                
+                row_sum = 0;
+                for(int j = 0; j < col; j++){
+                    
+                    row_sum = row_sum + mat[i][j];
+                }
+                 if(large < row_sum){
+                    
+                    lrc = 'r';
+                    large = row_sum;
+                    rno = i;
+                }
+            }
+            for(int i = 0; i < col; i++){
+                
+                col_sum = 0;
+                for(int j = 0; j < row; j++){
+                    
+                    col_sum = col_sum + mat[j][i];
+                }
+                if(large < col_sum){
+                    lrc = 'c';
+                    large = col_sum;
+                    cno = i;
+                }
+            }
+           
+            if(lrc == 'c'){
+                System.out.println("column " + cno + " " + large);
+            }
+            else if(lrc == 'r'){
+                System.out.println("row " + rno + " " + large);
+            }
+            else{
+                System.out.println(Integer.MIN_VALUE);
+            }
+        }
+        else
+            System.out.println("row 0 " + Integer.MIN_VALUE);
+	}
+}
