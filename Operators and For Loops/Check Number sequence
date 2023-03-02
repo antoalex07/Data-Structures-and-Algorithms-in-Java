@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        int prev = s.nextInt();
+        boolean flag = true, inc = false, dec = true;
+        for(int i = 1; i < n; i++){
+            
+            int top = s.nextInt();
+            if(top == prev){
+                
+                flag = false;
+                break;
+            }
+            if(dec && top > prev ){
+                
+                dec = false;
+                inc = true;
+                
+            }
+            if(inc && top < prev){
+                
+                inc = false;
+            }
+            prev = top;
+        }
+        if(!flag)
+            System.out.println("false");
+        else if(inc != dec)
+            System.out.println("true");
+        else 
+            System.out.println("false");
+
+	}
+}
