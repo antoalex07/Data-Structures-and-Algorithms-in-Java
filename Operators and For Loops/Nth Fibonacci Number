@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Solution {
+
+
+	public static void main(String[] args) {
+		
+        Scanner s = new Scanner(System.in);
+        int N = s.nextInt();
+        int first,sec,third;
+        if(N >= 3 && N <= 10000){
+            
+            first = 1;
+            sec = 1;
+            third = first + sec;
+            for(int i = 3; i <= N; i++){
+                
+                third = first + sec;
+                first = sec;
+                sec = third;
+            }
+            System.out.print(third);
+        }
+        else if(N == 1 || N == 2)
+            System.out.print("1");
+		
+
+		
+	}
+
+}
