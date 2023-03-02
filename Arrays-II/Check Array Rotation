@@ -1,0 +1,23 @@
+public class Solution {
+
+    public static int arrayRotateCheck(int[] arr){
+    	
+        int n = arr.length;
+        if(n > 0){
+        	int i = 1;
+        	while(i < n){
+            	if(arr[i - 1] > arr[i])
+                	break;
+            	else
+                	i++;
+        	}
+        	//System.out.println(i+" "+n);
+        	if(i == n)
+            	return 0;
+        	else 
+            	return i;
+        }
+        return 0;
+    }
+
+}
