@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		
+        Scanner s = new Scanner(System.in);
+        int N = s.nextInt();
+        int rem;
+        long bin = 0, pow = 1;
+        while(N > 0){
+            
+            rem = N % 2;
+            bin = bin + rem * pow;
+            pow = pow * 10;
+            N = N / 2;
+            
+        }
+        System.out.println(bin);
+
+	}
+}
