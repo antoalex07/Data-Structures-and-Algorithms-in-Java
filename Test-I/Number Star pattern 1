@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class runner {
+
+	public static void main(String[] args) {
+		
+        Scanner s = new Scanner(System.in);
+        int N = s.nextInt();
+        for(int i = 1; i <= N; i++){
+            
+            int num = N;
+            for(int j = 1; j <= N; j++){
+                
+                if(i + j != N + 1){
+                    
+                    System.out.print(num--);
+                    
+                }
+                else{
+                    
+                    System.out.print("*");
+                    num--;
+                    
+                }
+                
+            }
+            System.out.println();
+            
+        }
+        
+	}
+}
