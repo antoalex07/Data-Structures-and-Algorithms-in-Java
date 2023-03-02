@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Solution {
+
+	public static void main(String[] args) {
+		
+		Scanner s = new Scanner(System.in);
+        int N = s.nextInt();
+        if(N >= 2 && N <= 100){
+            
+            System.out.println("2");
+            for(int i = 3; i <= N; i += 2){
+                
+                int flag = 0;
+                for(int j = 3; j < i/2; j += 2){
+                    
+                    if(i % j == 0){
+                        
+                        flag = 1;
+                        break;
+                    }
+                }
+                if(flag == 0)
+                    System.out.println(i);
+            }   
+        }
+	}
+}
