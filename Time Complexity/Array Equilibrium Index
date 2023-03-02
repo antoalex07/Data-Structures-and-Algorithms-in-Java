@@ -1,0 +1,61 @@
+public class Solution {
+    /*
+    public static int Equilibrium(int[] a , int left , int right , int index){
+
+        if(a.length > 1){
+	        if(left == right){
+	            return index;
+	        }
+	        else if(left > right && index > 0){
+	            return Equilibrium(a , left - a[index - 1] , right + a[index] , index--);
+	        }
+	        else if(index < a.length - 1) {
+	            return Equilibrium(a , left + a[index] , right - a[index + 1] , index++);
+	        }
+        }
+        return -1;
+    }
+    */
+    public static int Sum(int[] a , int si , int ei){
+        
+        int sum = 0;
+        for(int i = si; i < ei; i++){
+            sum += a[i];
+        }
+        return sum;
+    }
+
+	public static int arrayEquilibriumIndex(int[] arr){  
+		
+        int lsum = Sum(arr , 0 , arr.length / 2);
+        int rsum = Sum(arr , (arr.length / 2) + 1 , arr.length);
+    	int index = arr.length / 2;
+
+        if(arr.length > 1){
+	        if(lsum == rsum){
+	            return index;
+    	    }
+	        else if(lsum > rsum){
+	            while(index > 0){
+	                lsum -= arr[index - 1];
+	                rsum += arr[index];
+	                index--;
+	                if(lsum == rsum){
+	                    return index;
+	                }
+	            }
+	        }
+	        else{
+	            while(index < arr.length - 1){
+	                lsum += arr[index];
+	                rsum -= arr[index + 1];
+	                index++;
+	                if(lsum == rsum){
+	                    return index;
+	                }
+	            }
+	        }
+		}
+        return -1;
+	}
+}
