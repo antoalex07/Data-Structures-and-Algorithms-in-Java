@@ -1,0 +1,35 @@
+
+public class Solution {  
+
+    public static void rotate(int[] arr, int d) {
+    	//Your code goes here
+        int n = arr.length;
+        if(n == 0){
+            return;
+        }
+        int rot = d % n;
+        int index = n - rot;
+        for(int i = 0; i < n / 2; i++){
+            int temp = arr[i];
+            arr[i] = arr[n - i - 1];
+            arr[n - i - 1] = temp;
+        }
+          //      for(int i = 0; i < n; i++)
+          //  System.out.print(arr[i] + " ");
+        for(int i = 0; i < index / 2; i++){
+            int temp = arr[i];
+            arr[i] = arr[index - i - 1];
+            arr[index - i - 1] = temp;
+        }
+      //  for(int i = 0; i < n; i++)
+          //  System.out.print(arr[index] + " ");
+        int j = index , i = 0;
+        while(j < (n + index) / 2){
+			int temp = arr[j];
+            arr[j] = arr[n - 1 - i];
+            arr[n - 1 - i] = temp;
+            j++;
+            i++;
+        }   
+    }
+}
