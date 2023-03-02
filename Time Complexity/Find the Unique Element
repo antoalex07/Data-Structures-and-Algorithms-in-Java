@@ -1,0 +1,21 @@
+import java.util.Arrays;
+public class Solution {
+
+	public static int findUnique(int[] arr) {
+		
+        if(arr.length == 1){
+            return arr[0];
+        }
+        Arrays.sort(arr , 0 , arr.length - 1);
+        
+        for(int i = 0; i < arr.length - 1;){
+            if(arr[i] == arr[i+1]){
+                i = i + 2;
+            }
+            else{
+                return arr[i];
+            }
+        }
+        return arr[arr.length - 1];
+	}
+}
