@@ -1,0 +1,21 @@
+
+public class Solution {
+
+	public static String reverseEachWord(String str) {
+		
+        String str2 = "";
+        for(int i = 0; i < str.length(); i++){
+            
+            String str1 = "";
+            while(i < str.length() && str.charAt(i) != ' '){
+                str1 = str.charAt(i) + str1;
+                i++;
+            }    
+            if(i == str.length())
+                str2 = str2 + str1;
+            else
+                str2 = str2 + str1 + " ";
+        }
+        return str2;
+	}
+}
