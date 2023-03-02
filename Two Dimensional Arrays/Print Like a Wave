@@ -1,0 +1,25 @@
+
+public class Solution {
+
+	public static void wavePrint(int mat[][]){
+		
+        int row = mat.length;
+        if(row > 0){
+	        
+            int col = mat[0].length;
+            for(int i = 0; i < col; i++){
+                
+                for(int j = 0; j < row; j++){
+                    
+                    if(i % 2 == 0){
+                        
+                        System.out.print(mat[j][i] + " ");
+                    }
+                    else{
+                        System.out.print(mat[row - j - 1][i] + " ");
+                    }
+                }
+            }
+        }
+    }
+}
