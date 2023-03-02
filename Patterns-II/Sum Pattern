@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		
+        Scanner s = new Scanner(System.in);
+        int N = s.nextInt();
+        if(N > 0 && N <= 50){
+            
+            System.out.print("1=1\n");
+            int i = 2;
+            while(i <= N){
+                
+                int sum = 0, j = 1;
+                while(j < i){
+                    
+                    sum = sum + j;
+                    System.out.print(j+"+");
+                    j++;
+                }
+                sum = sum + j;
+                System.out.print(j+"="+sum);
+            	System.out.println();
+                i++;
+            }
+        }     
+	}
+}
