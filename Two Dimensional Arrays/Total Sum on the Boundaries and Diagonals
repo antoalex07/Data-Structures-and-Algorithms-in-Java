@@ -1,0 +1,23 @@
+
+public class Solution {
+
+	public static void totalSum(int[][] mat) {
+		
+        int N  = mat.length;
+        if(N > 0){
+            
+            int sum = 0;
+            for (int i = 0; i < N; i++){
+                
+                for(int j = 0; j < N; j++){
+                    
+                    if(i == 0 || j == 0 || i == j || i + j == N - 1 || i == N - 1 || j == N - 1)
+                        sum = sum + mat[i][j];
+                }
+            } 
+            System.out.println(sum);
+        }
+        else
+            System.out.println("0");
+	}
+}
