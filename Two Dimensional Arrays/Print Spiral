@@ -1,0 +1,56 @@
+
+public class Solution {
+
+	public static void spiralPrint(int matrix[][]){
+		int row = matrix.length;
+        if(row > 0){
+            
+            int col = matrix[0].length;
+            int count = 1 , i = 0 , j = -1;
+            int row_start = 0 , row_end = row - 1;
+            int col_start = 0 , col_end = col;
+            char dir_row = 'd' , dir_col = 'r';
+            while(count <= row * col){
+                
+                while(col_start < col_end){
+                    
+                    if(dir_col == 'r'){
+                        
+	                    System.out.print(matrix[i][++j] + " ");
+                    }
+                	else{
+                        
+                        System.out.print(matrix[i][--j] + " ");
+                    }
+                    col_start++;
+        	        count++;
+                }
+                col_start = 0;
+                col_end--;
+                if(dir_col == 'r')
+                    dir_col = 'l';
+                else
+                    dir_col = 'r';
+                while(row_start < row_end){
+                    
+                    if(dir_row == 'u'){
+                        
+                        System.out.print(matrix[--i][j] + " ");
+                    }
+                    else{
+                        
+                        System.out.print(matrix[++i][j] + " ");
+                    }
+                    row_start++;
+                    count++;
+                }
+                row_start = 0;
+                row_end--;
+                if(dir_row == 'u')
+                    dir_row = 'd';
+                else
+                    dir_row = 'u';
+            }
+        }
+	}
+}
