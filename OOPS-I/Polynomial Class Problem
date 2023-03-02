@@ -1,0 +1,115 @@
+
+
+
+
+public class Polynomial {
+
+	private int data[];
+    private int nextElementIndex;
+    
+    public Polynomial(){
+        
+        data = new int[5];
+        nextElementIndex = 0;
+    }
+	
+	public void setCoefficient(int degree, int coeff){
+
+		if(degree >= data.length ){
+            
+            extendCapacity(degree);
+        }
+        data[degree] = coeff;
+        nextElementIndex = degree + 1;
+	}
+	 
+	public void print(){
+		
+        for(int i = 0; i < nextElementIndex; i++){
+            
+            if(data[i] != 0){
+	            if(i == 0){
+                
+    	            System.out.print(data[i] + " ");
+        	    }
+            	else{
+                    
+                    System.out.print(data[i] + "x" + i + " ");
+                }
+            }
+            
+        }
+	}
+
+	
+	// Adds two polynomials and returns a new polynomial which has result
+	public Polynomial add(Polynomial p){
+
+		if(this.nextElementIndex < p.nextElementIndex){
+            
+            this.extendCapacity(p.nextElementIndex - 1);
+        }
+        else{
+            
+            p.extendCapacity(this.nextElementIndex - 1);
+        }
+        for(int i = 0; i < this.data.length; i++){
+            
+            setCoefficient(i , this.data[i] + p.data[i]);
+        }
+		return this;
+    }
+	
+	// Subtracts two polynomials and returns a new polynomial which has result
+	public Polynomial subtract(Polynomial p){
+			
+		if(this.nextElementIndex < p.nextElementIndex){
+            
+            this.extendCapacity(p.nextElementIndex - 1);
+        }
+        else{
+            
+            p.extendCapacity(this.nextElementIndex - 1);
+        }
+        for(int i = 0; i < this.data.length; i++){
+            
+            setCoefficient(i , this.data[i] - p.data[i]);
+        }
+		return this;
+    }
+	
+	// Multiply two polynomials and returns a new polynomial which has result
+	public Polynomial multiply(Polynomial p){
+        
+//         System.out.print(this.data.length + " " + p.data.length);
+		int data[] = new int[(p.data.length) + (this.data.length)];
+        for(int i = 0; i < this.data.length; i++){
+            
+            for(int j = 0; j < p.data.length; j++){
+                
+                int prod = this.data[i] * p.data[j];
+                int deg = i + j;
+                data[deg] = data[deg] + prod;
+            }
+        }
+        this.extendCapacity(data.length);
+        for(int i = 0; i < data.length; i++){
+            setCoefficient(i , data[i]);
+        }
+        return this;
+	}
+    
+    private void extendCapacity(int extend){
+        
+        
+        int temp[] = data;
+        data = new int[extend + 1];
+        
+        for(int i = 0; i < temp.length; i++){
+            
+            data[i] = temp[i];
+        }
+        
+    }
+
+}
