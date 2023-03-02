@@ -1,0 +1,64 @@
+import java.util.Arrays;
+
+public class Solution {	
+    
+	public static int pairsum(int arr[], int sum,int j){
+        int count=0;
+        int k = arr.length - 1 , sc = 0;
+            while(j<k)
+            {
+                if(arr[j] + arr[k] == sum){
+                    if(arr[j] == arr[k]){
+                        int n = k - j + 1;
+                        count = count + (n * (n - 1)) / 2;
+                        break;
+                    }
+                    else{
+                  		 // System.out.println(arr[i] + " " + arr[j] + " " + arr[k]);
+                    	count++;
+                        k--;
+                        sc++;
+                    }
+                }
+                else if(arr[j] + arr[k] > sum){
+                    k--;
+                }
+                else{
+                    if(arr[j] == arr[j + 1]){
+                    	j++;
+                        k = k + sc;
+                        sc = 0;
+                    }
+                    else{
+                        j++;
+                    }
+                }
+                
+            }
+        
+        return count;
+    }
+	public static int tripletSum(int[] arr, int num) {
+		if(arr.length == 0)
+            return 0;
+        boolean flag = true;
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] != arr[0]){
+                flag = false;
+            	break;
+            }
+        }
+        if(flag == true && arr[0] * 3 == num){
+            return (arr.length * (arr.length - 1) * (arr.length - 2)) / 6;
+        }
+        Arrays.sort(arr);
+        
+        int count = 0;
+        for(int i = 0; i < arr.length - 2; i++){
+            
+            int sum = num - arr[i];
+             count+=pairsum(arr,sum,i+1);
+        }
+        return count;  
+    }
+}
