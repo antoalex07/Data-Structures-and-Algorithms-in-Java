@@ -1,0 +1,14 @@
+
+public class Solution {
+	
+	public static int sum(int[] arr) {
+		//Your code goes here
+        int N = arr.length, sum = 0;
+        for(int i = 0; i < N; i++){
+            
+            sum = sum + arr[i];
+            
+        }
+        return sum;
+	}
+}
