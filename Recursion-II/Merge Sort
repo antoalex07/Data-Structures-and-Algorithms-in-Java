@@ -1,0 +1,58 @@
+public class solution {
+    
+    public static void Merge(int[] arr , int left , int mid , int right){
+        
+        int n1 = mid - left + 1;
+        int n2 = right - mid;
+        
+        int L[] = new int[n1];
+        int R[] = new int[n2];
+        
+        int i , j;
+        for(i = 0; i < n1; i++){
+            L[i] = arr[left + i];
+        }
+        
+        for(i = 0; i < n2; i++){
+            R[i] = arr[mid + 1 + i];
+        }
+        int k = left;
+        for(i = 0 , j = 0; i < n1 && j < n2;){
+            
+            if(L[i] > R[j]){
+                
+                arr[k++] = R[j++];
+            }
+            else{
+                arr[k++] = L[i++];
+            }
+        }
+        
+        while(i < n1){
+            arr[k++] = L[i++];
+        }
+        while(j < n2){
+            arr[k++] = R[j++];
+        }
+    }
+    
+    public static void Sort(int[] arr , int l , int r){
+        
+        if( l < r ){
+            
+            int m = l + (r - l) / 2;
+            
+            Sort(arr , l , m);
+            Sort(arr , m + 1 , r);
+            
+            Merge(arr , l , m , r);
+        }
+    }
+
+	public static void mergeSort(int[] input){
+		
+        Sort(input , 0 , input.length - 1);
+		
+	}
+    
+}
